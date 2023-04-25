@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Aritcle extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'id',
+        'abstract',
+        'content',
+        'user_id'          //foriegn key
+    ];
+
 }
+
+
