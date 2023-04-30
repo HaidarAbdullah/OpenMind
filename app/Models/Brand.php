@@ -14,4 +14,12 @@ class Brand extends Model
         'address',
         'description'          
     ];
+    
+    ####################### Relations Begin #######################
+    public function sponsors(){
+        return $this -> hasMany('App\Models\Sponsor','brand_id');
+    }
+    
+    #######################  Relations End  #######################
+
 }
