@@ -43,4 +43,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    ####################### Relations Begin #######################
+    public function article(){
+        return $this -> hasMany('App\Models\Article','User_id');
+ }
+    
+ public function pollingroom(){
+    return $this -> hasMany('App\Models\PollingRoom','creator_id');
+}
+
+
+
+    #######################  Relations End  #######################
 }
