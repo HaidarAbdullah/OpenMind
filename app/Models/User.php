@@ -66,4 +66,5 @@ class User extends Authenticatable
         return $this -> belongsTo('App\Models\User','follows_id');
     }
     #######################  Relations End  #######################
+
 }
