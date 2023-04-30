@@ -21,15 +21,15 @@ class Aritcle extends Model
         return $this -> belongsTo('App\Models\User','User_id');
     }
     
-    public function comment(){
+    public function comments(){
         return $this -> hasMany('App\Models\Comment','article_id');
     }
 
-    public function tag(){
+    public function tags(){
         return $this -> hasMany('App\Models\Tag','article_id');
     }
 
-    public function reference(){
+    public function references(){
         return $this -> hasMany('App\Models\Reference','article_id');
     }
 
