@@ -18,9 +18,11 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'id',
         'name',
         'email',
         'password',
+        'follows_id'          //foriegn key
     ];
 
     /**
@@ -41,4 +43,28 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    ####################### Relations Begin #######################
+    public function articles(){
+        return $this -> hasMany('App\Models\Article','User_id');
+    }
+    
+    public function comments(){
+        return $this -> hasMany('App\Models\Comment','user_id');
+    }
+
+    public function replies(){
+        return $this -> hasMany('App\Models\Reply','user_id');
+    }
+
+    public function fllows(){
+        return $this -> hasMany('App\Models\User','follows_id');
+    }
+
+    public function fllowers(){
+        return $this -> belongsTo('App\Models\User','follows_id');
+    }
+    #######################  Relations End  #######################
+
 }
