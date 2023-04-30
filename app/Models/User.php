@@ -46,23 +46,23 @@ class User extends Authenticatable
 
 
     ####################### Relations Begin #######################
-    public function article(){
+    public function articles(){
         return $this -> hasMany('App\Models\Article','User_id');
     }
     
-    public function comment(){
+    public function comments(){
         return $this -> hasMany('App\Models\Comment','user_id');
     }
 
-    public function reply(){
+    public function replies(){
         return $this -> hasMany('App\Models\Reply','user_id');
     }
 
-    public function fllow(){
+    public function fllows(){
         return $this -> hasMany('App\Models\User','follows_id');
     }
 
-    public function fllowed_by(){
+    public function fllowers(){
         return $this -> belongsTo('App\Models\User','follows_id');
     }
     #######################  Relations End  #######################
