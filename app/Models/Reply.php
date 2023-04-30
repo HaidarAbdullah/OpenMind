@@ -14,4 +14,16 @@ class Reply extends Model
         'user_id',          //foriegn key
         'comment_id',          //foriegn key
     ];
+    
+    ####################### Relations Begin #######################
+    public function user(){
+        return $this -> belongsTo('App\Models\User','User_id');
+    }
+    
+    public function comment(){
+        return $this -> belongsTo('App\Models\Comment','comment_id');
+    }
+    
+    #######################  Relations End  #######################
+
 }
