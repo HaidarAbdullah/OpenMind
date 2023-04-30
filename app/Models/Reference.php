@@ -14,4 +14,12 @@ class Reference extends Model
         'link', 
         'article_id',          //foriegn key
     ];
+    
+    ####################### Relations Begin #######################
+    public function article(){
+        return $this -> belongsTo('App\Models\Article','article_id');
+    }
+    
+    #######################  Relations End  #######################
+
 }
