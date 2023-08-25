@@ -15,6 +15,17 @@ class Comment extends Model
         'content',          
     ];
 
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($comment) {
+            $comment->replies()->delete();
+        });
+    }
+
+
     ####################### Relations Begin #######################
     public function user(){
         return $this -> belongsTo('App\Models\User','user_id');
