@@ -12,7 +12,9 @@ class View extends Model
         'id',
         'user_id',
         'article_id',
-        'time'    
+        'progress',
+        'time',
+        'elapsed_time'    
     ];
 
     
