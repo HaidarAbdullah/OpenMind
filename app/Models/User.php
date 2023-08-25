@@ -21,12 +21,14 @@ class User extends Authenticatable
         'id',
         'name',
         'email',
+        'contact_email',
         'password',
         'gender',
+        'country',
         'birth_date',
         'job_title',
         'img_src',
-        'is_premium'       //foriegn key
+        'is_premium'     
     ];
 
     /**
@@ -76,6 +78,10 @@ class User extends Authenticatable
 
     public function views(){
         return $this -> hasMany('App\Models\View','user_id');
+    }
+
+    public function likes(){
+        return $this -> hasMany('App\Models\Like','user_id');
     }
 
 
