@@ -18,9 +18,17 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'id',
         'name',
         'email',
+        'contact_email',
         'password',
+        'gender',
+        'country',
+        'birth_date',
+        'job_title',
+        'img_src',
+        'is_premium'     
     ];
 
     /**
@@ -41,4 +49,42 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    ####################### Relations Begin #######################
+    public function articles(){
+        return $this -> hasMany('App\Models\Article','author_id');
+    }
+    
+    public function comments(){
+        return $this -> hasMany('App\Models\Comment','user_id');
+    }
+
+    public function replies(){
+        return $this -> hasMany('App\Models\Reply','user_id');
+    }
+
+    public function fllows(){
+        return $this -> hasMany('App\Models\Follow','user1_id');
+    }
+
+    public function fllows_by(){
+        return $this -> hasMany('App\Models\Follow','user2_id');
+    }
+
+    public function sponsors(){
+        return $this -> hasMany('App\Models\Sponsor','user_id');
+    }
+
+    public function views(){
+        return $this -> hasMany('App\Models\View','user_id');
+    }
+
+    public function likes(){
+        return $this -> hasMany('App\Models\Like','user_id');
+    }
+
+
+    #######################  Relations End  #######################
+
 }
