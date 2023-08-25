@@ -7,9 +7,13 @@
     "require": {
         "php": "^8.0.2",
         "guzzlehttp/guzzle": "^7.2",
+        "http-interop/http-factory-guzzle": "^1.2",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
+        "laravel/scout": "^10.2",
         "laravel/tinker": "^2.7",
+        "meilisearch/meilisearch-php": "^1.2",
+        "stichoza/google-translate-php": "^5.1",
         "tymon/jwt-auth": "^2.0"
     },
     "require-dev": {
@@ -58,7 +62,8 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "allow-plugins": {
-            "pestphp/pest-plugin": true
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
         }
     },
     "minimum-stability": "stable",
