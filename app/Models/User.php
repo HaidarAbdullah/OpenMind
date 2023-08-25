@@ -22,7 +22,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'follows_id'          //foriegn key
+        'gender',
+        'birth_date',
+        'job_title',
+        'img_src',
+        'is_premium'       //foriegn key
     ];
 
     /**
@@ -47,7 +51,7 @@ class User extends Authenticatable
 
     ####################### Relations Begin #######################
     public function articles(){
-        return $this -> hasMany('App\Models\Article','User_id');
+        return $this -> hasMany('App\Models\Article','author_id');
     }
     
     public function comments(){
@@ -59,12 +63,22 @@ class User extends Authenticatable
     }
 
     public function fllows(){
-        return $this -> hasMany('App\Models\User','follows_id');
+        return $this -> hasMany('App\Models\Follow','user1_id');
     }
 
-    public function fllowers(){
-        return $this -> belongsTo('App\Models\User','follows_id');
+    public function fllows_by(){
+        return $this -> hasMany('App\Models\Follow','user2_id');
     }
+
+    public function sponsors(){
+        return $this -> hasMany('App\Models\Sponsor','user_id');
+    }
+
+    public function views(){
+        return $this -> hasMany('App\Models\View','user_id');
+    }
+
+
     #######################  Relations End  #######################
 
 }

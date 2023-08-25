@@ -5,27 +5,32 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Reply extends Model
+class Follow extends Model
 {
     use HasFactory;
-    
-   protected $table = "replies";
     protected $fillable = [
         'id',
-        'user_id',
-        'comment_id',      
-        'content',        
+        'user1_id',         
+        'user2_id',                  
     ];
+
+
+
+
+
+
+
+
     
     ####################### Relations Begin #######################
-    public function user(){
-        return $this -> belongsTo('App\Models\User','user_id');
+    public function follow_user(){
+        return $this -> belongsTo('App\Models\User','user1_id');
     }
-    
-    public function comment(){
-        return $this -> belongsTo('App\Models\Comment','comment_id');
+
+    public function fllowed_by_user(){
+        return $this -> belongsTo('App\Models\User','user2_id');
     }
-    
+
     #######################  Relations End  #######################
 
 }

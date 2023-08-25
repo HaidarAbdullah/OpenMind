@@ -10,14 +10,16 @@ class Reference extends Model
     use HasFactory;
     protected $fillable = [
         'id',
-        'description',
-        'link', 
-        'article_id',          //foriegn key
+        'article_id',
+        'tag_id', 
     ];
     
     ####################### Relations Begin #######################
     public function article(){
         return $this -> belongsTo('App\Models\Article','article_id');
+    }
+    public function tag(){
+        return $this -> belongsTo('App\Models\Tag','tag_id');
     }
     
     #######################  Relations End  #######################

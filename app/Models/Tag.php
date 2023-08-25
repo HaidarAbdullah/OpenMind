@@ -10,13 +10,12 @@ class Tag extends Model
     use HasFactory;
     protected $fillable = [
         'id',
-        'keyword',
-        'article_id',          //foriegn key
+        'keyword'
     ];
     
     ####################### Relations Begin #######################
-    public function article(){
-        return $this -> belongsTo('App\Models\Article','article_id');
+    public function references(){
+        return $this -> hasMany('App\Models\Reference','tag_id');
     }
 
     #######################  Relations End  #######################

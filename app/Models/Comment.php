@@ -10,14 +10,14 @@ class Comment extends Model
     use HasFactory;
     protected $fillable = [
         'id',
-        'content',
-        'user_id',          //foriegn key
+        'user_id',            //foriegn key
         'article_id',          //foriegn key
+        'content',          
     ];
 
     ####################### Relations Begin #######################
     public function user(){
-        return $this -> belongsTo('App\Models\User','User_id');
+        return $this -> belongsTo('App\Models\User','user_id');
     }
     
     public function article(){

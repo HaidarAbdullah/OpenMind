@@ -12,7 +12,9 @@ class Brand extends Model
         'id',
         'name',
         'address',
-        'description'          
+        'link' ,
+        'description' ,
+        'img_src'        
     ];
     
     ####################### Relations Begin #######################
