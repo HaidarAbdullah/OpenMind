@@ -13,6 +13,7 @@ class Tag extends Model
         'keyword'
     ];
     
+
     ####################### Relations Begin #######################
     public function references(){
         return $this -> hasMany('App\Models\Reference','tag_id');
